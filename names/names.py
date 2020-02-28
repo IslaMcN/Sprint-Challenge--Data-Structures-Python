@@ -49,7 +49,7 @@ for name in names_1_sorted:
     names = dupes(names_2_sorted, name)
     if name == names:
         duplicates.append(name)
-
+#Runtime is O(1)
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
