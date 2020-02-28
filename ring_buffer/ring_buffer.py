@@ -21,9 +21,19 @@ class RingBuffer:
     def get(self):
         # Note:  This is the only [] allowed
         list_buffer_contents = []
-
+        begin = self.current
+        list_buffer_contents.append(begin.value)
         # TODO: Your code here
-        
+        if begin.next:
+            nxt = begin.next
+        else:
+            nxt = self.storage.head
+        while nxt != begin:
+            list_buffer_contents.append(nxt.value)
+            if nxt.next:
+                nxt = nxt.next
+            else:
+                nxt = self.storage.head
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
