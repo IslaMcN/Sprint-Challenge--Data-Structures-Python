@@ -41,7 +41,19 @@ class LinkedList:
       current = current.get_next()
     # if we've gotten here, then the target node isn't in our list
     return False
-
+# O(n)
   def reverse_list(self):
     # TO BE COMPLETED
-    pass
+    # 3 Pointer prev as null, curr as head and next is null
+    prev = None
+    current = self.head
+    # Iterate through the linked list
+    while current is not None:
+      #Before changing next of current store next node
+      next = current.next_node
+      # Now change next of current
+      current.next_node = prev
+      # Move prev and curr one step forward
+      prev = current
+      current = next
+    self.head = prev
